@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { styles } from './LoginScreen.styles';
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }: { navigation: any }) => {
+  const handleLogin = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.greeting}>Welcome back 👋</Text>
@@ -21,7 +25,7 @@ export const LoginScreen = () => {
         secureTextEntry
       />
 
-      <TouchableOpacity style={styles.signInButton}>
+      <TouchableOpacity style={styles.signInButton} onPress={handleLogin}>
         <Text style={styles.signInButtonText}>Sign In</Text>
       </TouchableOpacity>
 
